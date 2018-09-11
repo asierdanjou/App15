@@ -7,62 +7,63 @@
     <ContentPage.Content>
         <ScrollView>
             <StackLayout
-            Padding="10,20,10,5">
+                Padding="5">
                 <Label 
-                FontAttributes="Bold"
-                FontSize="Large"
-                Text="Login"
-                HorizontalOptions="CenterAndExpand">
+                    FontAttributes="Bold"
+                    FontSize="Large"
+                    HorizontalOptions="CenterAndExpand">
                 </Label>
                 <Image
-                Source="log"
-                WidthRequest="75">
+                    Source="log"
+                    WidthRequest="75">
                 </Image>
                 <Grid
-                Margin="0,10,0,0">
+                    Margin="10,10,10,0"
+                    VerticalOptions="CenterAndExpand">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="2*"/>
                     </Grid.ColumnDefinitions>
                     <Label 
-                    Grid.Row="0"
-                    Grid.Column="0"
-                    Text="E-Mail"
-                    VerticalOptions="Center">
+                        Grid.Row="0"
+                        Grid.Column="0"
+                        Text="E-Mail"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
-                    Grid.Row="0"
-                    Grid.Column="1"
-                    Keyboard="Email"
-                    Placeholder="Enter your email...">
+                        Grid.Row="0"
+                        Grid.Column="1"
+                        Keyboard="Email"
+                        Placeholder="Enter your email...">
                     </Entry>
                     <Label 
-                    Grid.Row="1"
-                    Grid.Column="0"
-                    Text="Password"
-                    VerticalOptions="Center">
+                        Grid.Row="1"
+                        Grid.Column="0"
+                        Text="Password"
+                        VerticalOptions="Center">
                     </Label>
                     <Entry
-                    Grid.Row="1"
-                    Grid.Column="1"
-                    IsPassword="True"
-                    Keyboard="Email"
-                    Placeholder="Enter your password...">
+                        Grid.Row="1"
+                        Grid.Column="1"
+                        IsPassword="True"
+                        Keyboard="Email"
+                        Placeholder="Enter your password...">
                     </Entry>
                 </Grid>
-                <ActivityIndicator>
-
+                <ActivityIndicator
+                    VerticalOptions="CenterAndExpand">
                 </ActivityIndicator>
-
                 <StackLayout
-                Orientation="Horizontal">
+                    Margin="10,0"
+                    Orientation="Horizontal"
+                    VerticalOptions="CenterAndExpand">
                     <Label
-                    HorizontalOptions="StartAndExpand"
-                    Text="Rememberme on this device"
-                    VerticalOptions="Center">
+                        HorizontalOptions="StartAndExpand"
+                        Text="Rememberme on this device"
+                        VerticalOptions="Center">
                     </Label>
                     <Switch
-                    HorizontalOptions="End">
+                        HorizontalOptions="End">
                     </Switch>
                 </StackLayout>
                 <Label
@@ -72,43 +73,41 @@
                     VerticalOptions="CenterAndExpand">
                 </Label>
                 <StackLayout
-                Margin="20,0">
+                    Margin="40,0"
+                    VerticalOptions="CenterAndExpand">
                     <Button
-                    BackgroundColor="Navy"
-                    BorderRadius="30"
-                    HeightRequest="60"
-                    Text="Login"
-                    TextColor="White">
+                        BackgroundColor="Navy"
+                        BorderRadius="30"
+                        HeightRequest="60"
+                        Text="Login"
+                        TextColor="White">
                     </Button>
                     <Button
-                    BackgroundColor="Purple"
-                    BorderRadius="30"
-                    HeightRequest="60"
-                    Text="Register"
-                    TextColor="White">
+                        BackgroundColor="Purple"
+                        BorderRadius="30"
+                        HeightRequest="60"
+                        Text="Register"
+                        TextColor="White">
                     </Button>
                 </StackLayout>
                 <StackLayout
-                HorizontalOptions="Center"
-                Orientation="Horizontal">
+                    HorizontalOptions="Center"
+                    Orientation="Horizontal"
+                    VerticalOptions="EndAndExpand">
                     <Image
-                    Source="facebook_logo"
-                    WidthRequest="90">
-
+                        Source="facebook_logo"
+                        WidthRequest="90">
                     </Image>
                     <Image
-                    Source="twitter_logo"
-                    WidthRequest="80">
-
+                        Source="twitter_logo"
+                        WidthRequest="80">
                     </Image>
                     <Image
-                    Source="instagram_logo"
-                    WidthRequest="85">
-
+                        Source="instagram_logo"
+                        WidthRequest="85">
                     </Image>
                 </StackLayout>
             </StackLayout>
-
         </ScrollView>
     </ContentPage.Content>
 </ContentPage>
