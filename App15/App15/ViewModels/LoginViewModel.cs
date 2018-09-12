@@ -1,21 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-
-namespace App15.ViewModels
+﻿namespace App15.ViewModels
 {
     using GalaSoft.MvvmLight.Command;
-    using System.ComponentModel;
     using System.Windows.Input;
     using Xamarin.Forms;
 
     // Clase con interface INotifyPropertyChanged
-
-    class LoginViewModel : INotifyPropertyChanged
+    // Lo ponemos a heredar de la BaseViewModel (antes heredaba directamente de INotifyPropertyChanged)
+    public class LoginViewModel : BaseViewModel
     {
         #region Events
-        public event PropertyChangedEventHandler PropertyChanged;
+        //public event PropertyChangedEventHandler PropertyChanged;
         #endregion
 
         // Atributos privados de la clase
@@ -31,6 +25,7 @@ namespace App15.ViewModels
         public string Email { get; set; }
         public string Password
         {
+            /*
             get
             {
                 return this.password;
@@ -46,43 +41,20 @@ namespace App15.ViewModels
                     );
                 }
             }
+            */
+            get { return this.password; }
+            set { SetValue(ref this.password, value); }
         }
         public bool IsRunning
         {
-            get
-            {
-                return this.isRunning;
-            }
-            set
-            {
-                if (this.isRunning != value)
-                {
-                    this.isRunning = value;
-                    PropertyChanged?.Invoke(
-                        this,
-                        new PropertyChangedEventArgs(nameof(this.IsRunning))
-                    );
-                }
-            }
+            get { return this.isRunning; }
+            set { SetValue(ref this.isRunning, value); }
         }
         public bool IsRemembered { get; set; }
         public bool IsEnabled
         {
-            get
-            {
-                return this.isEnabled;
-            }
-            set
-            {
-                if (this.isEnabled != value)
-                {
-                    this.isEnabled = value;
-                    PropertyChanged?.Invoke(
-                        this,
-                        new PropertyChangedEventArgs(nameof(this.IsEnabled))
-                    );
-                }
-            }
+            get { return this.isEnabled; }
+            set { SetValue(ref this.isEnabled, value); }
         }
         #endregion
 
