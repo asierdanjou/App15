@@ -85,6 +85,7 @@
                         BorderRadius="30"
                         Command="{Binding LoginCommand}"
                         HeightRequest="60"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Login"
                         TextColor="White">
                     </Button>
@@ -92,6 +93,7 @@
                         BackgroundColor="Purple"
                         BorderRadius="30"
                         HeightRequest="60"
+                        IsEnabled="{Binding IsEnabled, Mode=TwoWay}"
                         Text="Register"
                         TextColor="White">
                     </Button>
