@@ -3,6 +3,7 @@
     using GalaSoft.MvvmLight.Command;
     using System.Windows.Input;
     using Xamarin.Forms;
+    using Views;
 
     // Clase con interface INotifyPropertyChanged
     // Lo ponemos a heredar de la BaseViewModel (antes heredaba directamente de INotifyPropertyChanged)
@@ -14,7 +15,8 @@
 
         // Atributos privados de la clase
         // En este ejemplo creamos las que queremos refrecar en tiempo de ejecucion.
-        #region Attributes      
+        #region Attributes    
+        private string email;
         private string password;    // Atributo privado en minuscula
         private bool isRunning;
         private bool isEnabled;
@@ -22,7 +24,12 @@
 
         // Propiedades publicas de la clase (bindadas a los elementos de la LoginPage)
         #region Properties
-        public string Email { get; set; }
+        public string Email
+        {
+            get { return this.email; }
+            set { SetValue(ref this.email, value); }
+        }
+
         public string Password
         {
             /*
@@ -64,6 +71,9 @@
         {
             this.IsRemembered = true;
             this.IsEnabled = true;
+
+            this.Email = "asierdanjou@gmail.com";
+            this.Password = "1234";
         }
         #endregion
 
@@ -110,12 +120,17 @@
             }
             this.IsRunning = false;
             this.IsEnabled = true;
-
+            /*
             await Application.Current.MainPage.DisplayAlert(
                 "Ok",
                 "CORRECT",
                 "Accept");
+                */
+            this.Email = string.Empty;
+            this.Password = string.Empty;
 
+            MainViewModel.GetInstance().Lands = new LandsViewModel();
+            await Application.Current.MainPage.Navigation.PushAsync(new LandsPage());
         }
         #endregion
     }
