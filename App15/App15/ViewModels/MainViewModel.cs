@@ -5,6 +5,7 @@
         #region ViewModels
         public LoginViewModel Login { get; set; }
         public LandsViewModel Lands { get; set; } // No la instanciamos en el constructor para no carga desde el principio en memoria
+        public LandViewModel Land { get; set; }
         #endregion
 
         #region Constructors

@@ -8,10 +8,71 @@
         <StackLayout
             BindingContext="{Binding Lands}"
             Padding="5">
-            <Label
-                FontSize="Large"
-                Text="Lands Page">
-            </Label>
+            <SearchBar
+                Text="{Binding Filter, Mode=TwoWay}"
+                Placeholder="Search..."
+                SearchCommand="{Binding SearchCommand}">
+            </SearchBar>
+            <ListView 
+                BackgroundColor="Silver"
+                HasUnevenRows="true"             
+                IsPullToRefreshEnabled="true"
+                IsRefreshing="{Binding IsRefreshing, Mode=TwoWay}"
+                ItemsSource="{Binding Lands}"
+                SeparatorVisibility="None"
+                RefreshCommand="{Binding RefreshCommand}">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <Frame
+                                CornerRadius="20"
+                                HasShadow="true"
+                                Margin="5">
+                                <Frame.GestureRecognizers>
+                                    <TapGestureRecognizer Command="{Binding SelectLandCommand}"/>
+                                </Frame.GestureRecognizers>
+                                <!-- El comando SelectLandCommand debe ir en la clase que da origen a la lista. Es decir, Land.cs.
+                                     No debe ir en LandsViewModel. Porque el contexto cambio.
+                                     Las propiedades cambian en funcion de que pais toquemos.
+                                     El comando debe ir en el model Land.cs por funcionamiento.
+                                     Si lo reconoce el comando en Lands.cs pero hay un criterio de arquitectura y es que los
+                                     modelos deben mantenerse puros.
+                                     Los modelos no se pueden manipular y si le metemos un comando al modelo ya le estamos dando
+                                     el roll de ViewModel y no de Model.
+                                     Funcionalmente funcionaria pero no es lo correcto.
+                                     Pero no contaminemos el modelo Land.cs con metodos, ni con propiedades que no sean propias del modelo.
+                                     Para eso nos crearemos un nuevo ViewModel.
+                                -->
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="*"/>
+                                        <ColumnDefinition Width="Auto"/>
+                                    </Grid.ColumnDefinitions>
+                                    <StackLayout 
+                                        Grid.Column="0"
+                                        VerticalOptions="Center">
+                                        <Label 
+                                            FontAttributes="Bold"
+                                            FontSize="Medium" 
+                                            Text="{Binding Name}"
+                                            TextColor="Black">
+                                        </Label>
+                                        <Label 
+                                            Text="{Binding Capital}"
+                                            TextColor="Black">
+                                        </Label>
+                                    </StackLayout>
+                                    <Image 
+                                        Grid.Column="1"
+                                        HorizontalOptions="End" 
+                                        Source="ic_chevron_right">
+                                    </Image>
+                                </Grid>
+                            </Frame>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
