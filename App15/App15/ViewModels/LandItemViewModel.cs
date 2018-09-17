@@ -20,10 +20,12 @@
             }
         }
 
-        private async void SelectLand()
+        private async void SelectLand() // El metodo de navegacion es asincrono
         {
-            MainViewModel.GetInstance().Land = new LandViewModel(this);
-            await Application.Current.MainPage.Navigation.PushAsync(new LandPage());
+            // Antes de pintar la page hay que relacionar la viewmodel a la page
+            // Para eso invocamos la mainviewmodel con GetInstance que es el patron Singleton.
+            MainViewModel.GetInstance().Land = new LandViewModel(this); // La propiedad activa (Land) va a ser igual q a this = Pasar toda la clase actual 
+            await Application.Current.MainPage.Navigation.PushAsync(new LandPage()); // Push a la nueva pagina 
         }
         #endregion
     }
