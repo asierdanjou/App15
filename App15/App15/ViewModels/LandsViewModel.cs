@@ -21,7 +21,7 @@
         private ObservableCollection<LandItemViewModel> lands;
         private bool isRefreshing;
         private string filter;
-        private List<Land> landsList;
+        //private List<Land> landsList;
         #endregion
 
         #region Properties
@@ -89,7 +89,8 @@
             }
 
             //var list = (List<Land>)response.Result; // Variable local y perderiamos su informacion
-            this.landsList = (List<Land>)response.Result;
+            //this.landsList = (List<Land>)response.Result;
+            MainViewModel.GetInstance().LandsList = (List<Land>)response.Result;
             //this.Lands = new ObservableCollection<Land>(list); // En el constructor le pasamos la lista de paises
             this.Lands = new ObservableCollection<LandItemViewModel>(
                 this.ToLandItemViewModel()); // En el constructor le pasamos la lista de paises
@@ -103,7 +104,8 @@
         // Si lo hacemos con For(i) elemento por elemento nos va a tardar mucho
         private IEnumerable<LandItemViewModel> ToLandItemViewModel()
         {
-            return this.landsList.Select(l => new LandItemViewModel
+            //return this.landsList.Select(l => new LandItemViewModel
+            return MainViewModel.GetInstance().LandsList.Select(l => new LandItemViewModel
             {
                 Alpha2Code = l.Alpha2Code,
                 Alpha3Code = l.Alpha3Code,
